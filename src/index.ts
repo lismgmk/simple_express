@@ -8,9 +8,11 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.post('/form', (req, res) => {
-    res.status(200).send({message: 'Форма успешно получена сервером'})
+
     if(req.body.phone === '(000) 000-0000'){
         res.status(400).send({message: 'Форма отправлена некорректно'})
+    } else{
+        res.status(200).send({message: 'Форма успешно получена сервером'})
     }
 })
 
